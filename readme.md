@@ -22,6 +22,9 @@ $ pip3 install -r requirements.txt
 | `SCROLL_BY`    | Should the script scroll when the x position changes or the y? | `"x"` or `"y"`  |
 | `SENSIBILITY`  | How much do you have to move the mouse to get a scroll         | A number        |
 | `FREEZE_MOUSE` | Should the mouse stay still when holding the action button?    | A boolean       |
+| `HOLD_CTRL`    | Should hold CTRL while scrolling?                              | A boolean       |
+| `HOLD_SHIFT`   | Should hold SHIFT while scrolling?                             | A boolean       |
+| `HOLD_ALT`     | Should hold ALT while scrolling?                               | A boolean       |
 
 ## How to run
 
