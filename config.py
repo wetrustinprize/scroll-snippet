@@ -6,3 +6,6 @@ SCROLL_BY = "x"
 
 # Sensibility by pixels
 SENSIBILITY = 0.05
+
+# Should freeze the mouse?
+FREEZE_MOUSE = True

@@ -1,7 +1,7 @@
 from pynput import keyboard, mouse
 from time import sleep
 
-from config import KEY_TO_HOLD, SCROLL_BY, SENSIBILITY
+from config import KEY_TO_HOLD, SCROLL_BY, SENSIBILITY, FREEZE_MOUSE
 
 mouseController = mouse.Controller()
 
@@ -15,8 +15,9 @@ def mouse_move(x, y):
 
     # Callback for when the mouse is moved
     if not is_holding:
-        # Sets the new position and do nothing
-        last_mouse_position = (x, y)
+        # Check if should freeze the mouse position
+        if not FREEZE_MOUSE:
+            last_mouse_position = (x, y)
         return
 
     # Gets which position has changed
@@ -38,12 +39,15 @@ def mouse_move(x, y):
         mouseController.scroll(0, -1)
         scroll = scroll + 1
 
-    # Sets the last mouse position
-    last_mouse_position = (x, y)
+    # Check if should freeze the mouse position
+    if FREEZE_MOUSE:
+        mouseController.position = last_mouse_position
+    else:
+        last_mouse_position = (x, y)
 
 
 def keyboard_press(key):
-    global is_holding
+    global is_holding, mouseController, last_mouse_position
 
     if is_holding:
         return
@@ -54,6 +58,10 @@ def keyboard_press(key):
 
         # Check if the key is the one specified in the config
         if key_char == KEY_TO_HOLD and not is_holding:
+            # Check if should freeze the mouse position
+            if FREEZE_MOUSE:
+                last_mouse_position = mouseController.position
+
             is_holding = True
     except AttributeError:
         return
