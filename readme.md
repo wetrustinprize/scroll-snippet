@@ -4,7 +4,9 @@ Simple scroll snippet.
 
 - [Scroll Snippet](#scroll-snippet)
   - [How to install](#how-to-install)
+  - [Configuration](#configuration)
   - [How to run](#how-to-run)
+  - [How to use](#how-to-use)
 
 ## How to install
 
@@ -12,8 +14,21 @@ Simple scroll snippet.
 $ pip3 install -r requirements.txt
 ```
 
+## Configuration
+
+| variable       | what do                                                        | possible values |
+| -------------- | -------------------------------------------------------------- | --------------- |
+| `KEY_TO_HOLD`  | The key which the script will be listening                     | Any key         |
+| `SCROLL_BY`    | Should the script scroll when the x position changes or the y? | `"x"` or `"y"`  |
+| `SENSIBILITY`  | How much do you have to move the mouse to get a scroll         | A number        |
+| `FREEZE_MOUSE` | Should the mouse stay still when holding the action button?    | A boolean       |
+
 ## How to run
 
 Configure your hotkey and sensibility in the `config.py` file.
 
 Then execute the script with `python3 .`.
+
+## How to use
+
+Hold the key specified in the config file and move the mouse.
