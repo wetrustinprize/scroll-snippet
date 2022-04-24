@@ -86,7 +86,9 @@ def keyboard_press(key):
 
             is_holding = True
     except AttributeError:
-        return
+        pass
+
+    sleep(0.1)
 
 
 def keyboard_release(key):
